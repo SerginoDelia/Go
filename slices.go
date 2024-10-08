@@ -3,8 +3,10 @@
 
 package main
 
-import "fmt"
-import "slices"
+import (
+	"fmt"
+	"slices"
+)
 
 func main() {
 	// Unlike arrays slices are typed only by the elements they contain

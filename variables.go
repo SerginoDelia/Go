@@ -9,7 +9,7 @@
 // For example the 0 value for an int is 0
 
 // The := syntax is shorthand for declaring and initializing a variable
-// e.g. for var f string = "apple" in this case, the syntax is only availiable 
+// e.g. for var f string = "apple" in this case, the syntax is only availiable
 // inside functions
 
 package main
@@ -17,19 +17,19 @@ package main
 import "fmt"
 
 func main() {
-  
-  var a = "initial"
-  fmt.Println(a)
 
-  var b, c int = 1, 2
-  fmt.Println(b, c)
+	var a = "initial"
+	fmt.Println(a)
 
-  var d = true
-  fmt.Println(d)
+	var b, c int = 1, 2
+	fmt.Println(b, c)
 
-  var e int
-  fmt.Println(e)
+	var d = true
+	fmt.Println(d)
 
-  f := "apple"
-  fmt.Println(f)
+	var e int
+	fmt.Println(e)
+
+	f := "apple"
+	fmt.Println(f)
 }
