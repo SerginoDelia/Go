@@ -7,10 +7,8 @@
 package main
 
 import (
-  //"errors"
   "fmt"
-  //"os"
-  //"strconv"
+ // "math"
 )
 
 // Goals
@@ -21,10 +19,26 @@ import (
 // 2. Store calculated results into a file
 
 func main() {
-  revenue := getUserInput("Revenue: ") 
+  invalidNumber := "Invalid Input! Enter a number greater than 0"
+
+  revenue := getUserInput("Revenue: ")
+  if revenue <= 0 {
+    fmt.Println(invalidNumber)
+    return
+  }  
+
   expenses := getUserInput("Expenses: ") 
+  if expenses <= 0 {
+    fmt.Print(invalidNumber)
+    return
+  }
+
   taxRate := getUserInput("Tax Rate: ")
-  
+  if taxRate <= 0 {
+    fmt.Println(invalidNumber)
+    return
+  }
+
   ebt, profit, ratio := calculateKpi(revenue, expenses, taxRate)
   fmt.Printf("Earnings before tax: %.2f\n", ebt)
   
@@ -33,13 +47,13 @@ func main() {
   fmt.Printf("Ratio: %.3f\n", ratio)
 }
 
-func getUserInput(infoText string) float64 {
+func getUserInput(infoText string) (float64) {
   var userInput float64
   fmt.Print(infoText)
   fmt.Scan(&userInput)
+
   return userInput
 }
-
 
 //func getUserInput(infoText) (revenue float64, expenses float64, taxRate float64) {
 //  fmt.Print("Revenue: ")
