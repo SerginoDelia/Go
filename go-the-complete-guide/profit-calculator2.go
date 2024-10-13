@@ -12,9 +12,9 @@ import (
   //"strconv"
 )
 
-func writeToFile(msg string, data float64){
-  dataText := fmt.Sprint(data)
-  os.WriteFile("finances.txt", []byte(msg + dataText), 0644)
+func writeFinances(ebt, profit, ratio float64){
+  financesText := fmt.Sprintf("Earnings before tax %.2f:\nProfit: %.2f\nRatio: %.2f", ebt, profit, ratio )
+  os.WriteFile("finances.txt", []byte(financesText), 0644)
 }
 
 func main() {
@@ -23,13 +23,13 @@ func main() {
   taxRate := getUserInput("Tax Rate: ")
   
   ebt, profit, ratio := calculateKpi(revenue, expenses, taxRate)
-  fmt.Printf("Earnings before tax: %.2f\n", ebt)
+  fmt.Sprintf("Earnings before tax: %.2f\nProfit: %.2f\nRatio: %.2f", ebt, profit, ratio)
   
-  writeToFile("Earnings before tax: $", ebt)
-  
-  fmt.Printf("Profit: %.2f\n", profit)
+  //fmt.print("Earnings before tax: $", ebt)
+  //fmt.Printf("Profit: %.2f\n", profit)
+  //fmt.Printf("Ratio: %.3f\n", ratio)
 
-  fmt.Printf("Ratio: %.3f\n", ratio)
+  writeFinances(ebt, profit, ratio)
 }
 
 func getUserInput(infoText string) float64 {

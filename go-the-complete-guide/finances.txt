@@ -1,1 +1,3 @@
-Earnings before tax: $1000
+Earnings before tax 1000.00:
+Profit: 930.00
+Ratio: 1.08
