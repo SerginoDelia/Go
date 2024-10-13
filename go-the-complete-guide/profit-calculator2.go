@@ -8,8 +8,14 @@ package main
 
 import (
   "fmt"
- // "math"
+  "os"
+  //"strconv"
 )
+
+func writeToFile(msg string, data float64){
+  dataText := fmt.Sprint(data)
+  os.WriteFile("finances.txt", []byte(msg + dataText), 0644)
+}
 
 func main() {
   revenue := getUserInput("Revenue: ") 
@@ -18,6 +24,8 @@ func main() {
   
   ebt, profit, ratio := calculateKpi(revenue, expenses, taxRate)
   fmt.Printf("Earnings before tax: %.2f\n", ebt)
+  
+  writeToFile("Earnings before tax: $", ebt)
   
   fmt.Printf("Profit: %.2f\n", profit)
 
